@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${albums[0].title}"></p>
+<p th:text="${albums[0].artist}"></p>
+<p th:text="${albums[0].songCount}"></p>
+<p th:text="${albums[0].length}"></p>
+<img th:src="${albums[0].imageUrl}">
+<p th:text="${albums[1].title}"></p>
+<p th:text="${albums[1].artist}"></p>
+<p th:text="${albums[1].songCount}"></p>
+<p th:text="${albums[1].length}"></p>
+<img th:src="${albums[1].imageUrl}" width="600px">
+<p th:text="${albums[2].title}"></p>
+<p th:text="${albums[2].artist}"></p>
+<p th:text="${albums[2].songCount}"></p>
+<p th:text="${albums[2].length}"></p>
+<img th:src="${albums[2].imageUrl}" width="600px">
+</body>
+</html>
