@@ -1,9 +1,14 @@
 package com.cometAlbum.songr.controllers;
 
 import com.cometAlbum.songr.album.Album.Album;
+import com.cometAlbum.songr.repositories.AlbumRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.List;
 
 
 @Controller
@@ -15,6 +20,9 @@ public class HelloController {
         return "Hello, World!";
     }*/
 
+    //this sets up the singleton instance
+    @Autowired
+    AlbumRepository albumRepository;
 
     @GetMapping("/hi")
     public String getHi(){
@@ -34,7 +42,7 @@ public class HelloController {
         return "routes/capitalize.html";
     }
 
-    @GetMapping("/")
+    @GetMapping("/.")
     public String modelMe(){
         return "routes/splash.html";
     }
@@ -48,5 +56,21 @@ public class HelloController {
         m.addAttribute("albums", albums);
         return "routes/albums";
     }
+
+    @GetMapping("/")
+    public String getAlbums(Model m){
+        List<Album> albums = albumRepository.findAll();
+        m.addAttribute("albums", albums);
+        return "routes/albums";
+    }
+
+    @PostMapping("/")
+    public RedirectView createAlbum(String title, String artist, Integer songCount, Integer length, String imageUrl){
+        Album newAlbum = new Album(title, artist, songCount, length, imageUrl);
+        albumRepository.save(newAlbum);
+        return new RedirectView("/");
+    }
+
+
 
 }

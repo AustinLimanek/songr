@@ -1,11 +1,24 @@
 package com.cometAlbum.songr.album.Album;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Album {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+
     private String title;
     private String artist;
     private Integer songCount;
     private Integer length;
     private String imageUrl;
+
+    private Album(){}
 
     public Album(String title, String artist, Integer songCount, Integer length, String imageUrl) {
         this.title = title;
