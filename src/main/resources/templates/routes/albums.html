@@ -5,20 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-<p th:text="${albums[0].title}"></p>
-<p th:text="${albums[0].artist}"></p>
-<p th:text="${albums[0].songCount}"></p>
-<p th:text="${albums[0].length}"></p>
-<img th:src="${albums[0].imageUrl}">
-<p th:text="${albums[1].title}"></p>
-<p th:text="${albums[1].artist}"></p>
-<p th:text="${albums[1].songCount}"></p>
-<p th:text="${albums[1].length}"></p>
-<img th:src="${albums[1].imageUrl}" width="600px">
-<p th:text="${albums[2].title}"></p>
-<p th:text="${albums[2].artist}"></p>
-<p th:text="${albums[2].songCount}"></p>
-<p th:text="${albums[2].length}"></p>
-<img th:src="${albums[2].imageUrl}" width="600px">
+
+<form action ="/" method="post">
+    <fieldset>
+        <legend>Add an album of your choice</legend>
+        <label>Title</label>
+        <input type="text" name="title"/>
+        <label>Artist</label>
+        <input type="text" name="artist"/>
+        <label>Song Count</label>
+        <input type="text" name="songCount"/>
+        <label>Length (in seconds)</label>
+        <input type="text" name="length"/>
+        <label>imageUrl</label>
+        <input type="text" name="imageUrl"/>
+        <input type="submit" value="Add Album"/>
+    </fieldset>
+</form>
+
+<ul th:each="album : ${albums}">
+    <li th:text="'Title: ' + ${album.title}"></li>
+    <li th:text="'Artist: ' + ${album.artist}"></li>
+    <li th:text="'Song count: ' + ${album.songCount}"></li>
+    <li th:text="'Length (in seconds): ' + ${album.length}"></li>
+    <li><img th:src="${album.imageUrl}" width="600px"></li>
+
+</ul>
+
 </body>
 </html>
