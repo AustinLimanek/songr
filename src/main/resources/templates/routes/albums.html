@@ -23,14 +23,13 @@
     </fieldset>
 </form>
 
-<ul th:each="album : ${albums}">
-    <li th:text="'Title: ' + ${album.title}"></li>
-    <li th:text="'Artist: ' + ${album.artist}"></li>
-    <li th:text="'Song count: ' + ${album.songCount}"></li>
-    <li th:text="'Length (in seconds): ' + ${album.length}"></li>
-    <li><img th:src="${album.imageUrl}" width="600px"></li>
-
-</ul>
+<div th:each="album : ${albums}">
+    <img th:src="${album.imageUrl}" width="300px">
+    <form action ="/redirect" method="post">
+            <input type="hidden" name="albumName" th:value="${album.title}">
+            <input type="submit" th:value="'View ' + ${album.title}"/>
+    </form>
+</div>
 
 </body>
 </html>

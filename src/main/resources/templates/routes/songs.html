@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Songs</h1>
+<form action ="/songs" method="post">
+    <fieldset>
+        <legend>Add a song to album</legend>
+        <label>Title</label>
+        <input type="text" name="title"/>
+        <label>Track Number</label>
+        <input type="text" name="trackNumber"/>
+        <label>Length (in seconds)</label>
+        <input type="text" name="length"/>
+        <input type="submit" value="Add Song"/>
+    </fieldset>
+</form>
+<div th:text = "${albums}"></div>
+<div th:each ="album : ${albums}">
+<ul th:each="song : ${album.playList}">
+    <li th:text="'Title: ' + ${song.title}"></li>
+    <li th:text="'Track number: ' + ${song.trackNumber}"></li>
+    <li th:text="'Length: ' + ${song.length}"></li>
+    <li><img th:src="${album.imageUrl}" width="600px"></li>
+</ul>
+    <form action ="/songs" method="post">
+        <fieldset>
+            <legend>Add a song to album</legend>
+            <label>Title</label>
+            <input type="text" name="title"/>
+            <label>Track Number</label>
+            <input type="text" name="trackNumber"/>
+            <label>Length (in seconds)</label>
+            <input type="text" name="length"/>
+            <input type="submit" value="Add Song"/>
+        </fieldset>
+    </form>
+</div>
+
+</body>
+</html>
