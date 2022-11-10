@@ -1,9 +1,7 @@
 package com.cometAlbum.songr.album.Album;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -17,6 +15,9 @@ public class Album {
     private Integer songCount;
     private Integer length;
     private String imageUrl;
+
+    @OneToMany(mappedBy = "myAlbum")
+    List<Song> playList;
 
     private Album(){}
 
@@ -66,5 +67,13 @@ public class Album {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public List<Song> getPlayList() {
+        return playList;
+    }
+
+    public void setPlayList(List<Song> playList) {
+        this.playList = playList;
     }
 }

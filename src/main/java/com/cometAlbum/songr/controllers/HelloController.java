@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 
@@ -62,6 +63,13 @@ public class HelloController {
         List<Album> albums = albumRepository.findAll();
         m.addAttribute("albums", albums);
         return "routes/albums";
+    }
+
+    @GetMapping("/album/{title}")
+    public String getAlbum(@PathVariable String title, Model m){
+        Album[] albums = {albumRepository.findByTitle(title)};
+        m.addAttribute("albums", albums);
+        return "routes/album";
     }
 
     @PostMapping("/")

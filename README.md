@@ -18,7 +18,9 @@ Without this information, the application will not build appropriately.
 
 ## For functionality: 
 
-On the home page you can add an album by filling out information on the form provided on the top of the page. `Title`, `Artist`, `Song Count`, `Length`, and `imageUrl` inputs are provided.
+On the home page you can add an album by filling out information on the form provided on the top of the page. `Title`, `Artist`, `Song Count`, `Length`, and `imageUrl` inputs are provided. You can only see the album art of each album on the home page. Click the view button below the album art to view information about each album, such as their songs.
+
+On the album page you can view: `Title`, `Artist`, `Song Count`, `Length` (in seconds), and information about each song on the album. To navigate home, you can click the `home` button at the top of the album pages.
 
 `./capitalize/<your message>`: type whatever you want in the `<your message> to see that message become capitalized.
 
