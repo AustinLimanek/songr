@@ -2,7 +2,7 @@
 
 Spring MVC project that handles album information and presents that information to the user. The user may add their albums to the main page of the application.
 
-To run the program use `./gradlew runBoot`. Use `localhost:8080` as the root of the application.
+To run the program use `./gradlew bootRun`. Use `localhost:8080` as the root of the application.
 
 ## Installation
 
